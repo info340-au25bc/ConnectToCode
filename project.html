@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="authors" content="Helen Nguyen, Kenzie Atallah, Kassidy Liao, Alexis Lucatero">
+  <meta name="description" content="Project page for ConnectToCode">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/project.css">
+  <title>ConnectToCode — Project</title>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href=" "><div class="logo">CtC</div><span class="brand-title">ConnectToCode</span></a >
+
+      <form class="header-search" action="#" method="get" role="search" aria-label="Site search">
+        <label for="q2" class="sr-only">Search</label>
+        <input id="q2" name="q" type="search" placeholder="Search projects..." required>
+        <select name="sort" aria-label="Sort">
+          <option value="">Sort</option>
+          <option value="new">Newest</option>
+          <option value="popular">Popular</option>
+        </select>
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+
+      <nav class="main-nav" role="navigation">
+        <a class="nav-link" href="index.html">Home</a >
+        <a class="nav-link" href="project.html" aria-current="page">Projects</a >
+        <a class="nav-link" href="profile.html">Profile</a >
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap" id="project-main">
+    <div class="layout-card">
+      <aside class="col-left" aria-labelledby="members-title">
+        <h2 id="members-title">Member List</h2>
+        <ul class="member-list">
+          <li><span class="member-name">Alice Smith</span><span class="member-role">Frontend</span></li>
+          <li><span class="member-name">Bob Li</span><span class="member-role">Backend</span></li>
+          <li><span class="member-name">Carol Hall</span><span class="member-role">Data</span></li>
+          <li><span class="member-name">David Jones</span><span class="member-role">DevOps</span></li>
+        </ul>
+
+        <div class="member-stats">
+          <div><strong>Projects:</strong> 4</div>
+          <div><strong>Open roles:</strong> 2</div>
+        </div>
+      </aside>
+
+      <section class="col-right" aria-labelledby="proposal-title">
+        <div class="top-area">
+          <div class="top-inner">
+            <form class="project-filter" action="#" method="get" aria-label="Filter projects">
+              <div class="form-row">
+                <label for="search" class="label">Project keyword</label>
+                <input id="search" name="search" type="text" placeholder="e.g., recommender" />
+              </div>
+              <div class="form-row">
+                <label for="level" class="label">Skill level</label>
+                <select id="level" name="level">
+                  <option value="">Any</option>
+                  <option>Beginner</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button class="btn-ghost" type="reset">Reset</button>
+                <button class="btn-primary" type="submit">Apply</button>
+              </div>
+            </form>
+
+            <article class="proposal-content" id="proposal-title">
+              <h2>Proposed Application</h2>
+              <p>Our target audience for this platform includes developers and other creatives who struggle to showcase their hands-on experience in an increasingly competitive space. Through this platform, users can browse ongoing projects, request to join development teams, highlight their skills and interests, receive feedback from other professionals, and be invited to collaborate based on their previous experience.</p >
+
+              <p>More than just a networking tool, this platform empowers users to break free from the barriers of a hypercompetitive industry. It will allow users to:</p >
+              <ul>
+                <li>Browse ongoing projects by category, tech stack, or skill level.</li>
+                <li>Request to join project teams or start new projects with open roles.</li>
+                <li>Showcase their skills, past work, and interests on personalized profiles.</li>
+                <li>Receive feedback and endorsements from team members or mentors.</li>
+                <li>Get matched to projects through a recommendation system that considers previous experience and stated interests.</li>
+              </ul>
+
+              <section id="features">
+                <h3>Planned Interactive Features</h3>
+                <ul>
+                  <li><strong>Feature 1:</strong> Collaboration hub allows users to browse and request to join projects.</li>
+                  <li><strong>Feature 2:</strong> Group matching process that connects users based on experience and interests.</li>
+                  <li><strong>Feature 3 (small):</strong> Profile showcase presenting various work experiences, diverse skillsets, and interests of the users.</li>
+                </ul>
+                <p><em>Data / API:</em> Primarily user-generated data (profiles, projects, tags). No external API required initially.</p >
+              </section>
+            </article>
+          </div>
+        </div>
+
+        <div class="bottom-row">
+          <div class="box links-box">
+            <h4>Links & Details</h4>
+            <ul>
+              <li><a href="#">Repository (git)</a ></li>
+              <li><a href="#">Design Document</a ></li>
+              <li><a href="#">Onboarding Checklist</a ></li>
+            </ul>
+          </div>
+
+          <div class="box events-box">
+            <h4>Upcoming events</h4>
+            <ul>
+              <li>2025-11-05 — Sprint planning</li>
+              <li>2025-11-12 — Demo day</li>
+              <li>2025-11-20 — Community meetup</li>
+            </ul>
+            <div class="cta">
+              <button class="btn-primary">Request to Join</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2025 ConnectToCode</div>
+      <div class="attribution"></div>
+    </div>
+  </footer>
+</body>
+</html>
