@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="authors" content="Helen Nguyen, Kenzie Atallah, Kassidy Liao, Alexis Lucatero">
+  <meta name="description" content="Create new project for ConnectToCode">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/project.css">
+  <title>Create a New Project</title>
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo">CtC</div>
+        <span class="brand-title">ConnectToCode</span>
+      </a>
+
+      <form class="header-search" action="#" method="get" role="search" aria-label="Site search">
+        <label for="q2" class="sr-only">Search</label>
+        <input id="q2" name="q" type="search" placeholder="Search projects..." required>
+        <select name="sort" aria-label="Sort">
+          <option value="">Sort</option>
+          <option value="new">Newest</option>
+          <option value="popular">Popular</option>
+        </select>
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="project.html">Projects</a>
+        <a class="nav-link" href="project-upload.html">Upload</a>
+        <a class="nav-link" href="profile.html">Profile</a>
+        <a class="nav-link" href="dm.html">Messages</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="layout-card">
+        <!--Creating New Account-->
+        <form action="#" method="post" class="top-area upload">
+            <section>
+                <h2>Create an Account</h2>
+                 <!--User Info-->
+                <div class="form-row">
+                    <label for="first-name">First Name</label>
+                    <input id="first-name" name="first-name" type="text" placeholder="First Name">
+
+                    <label for="last-name">Last Name</label>
+                    <input id="last-name" name="last-name" type="text" placeholder="Last Name">
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="text" placeholder="email">
+
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text" placeholder="Username">
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" placeholder="Password">
+
+                    <label for="role">Role</label>
+                    <input id="role" name="role" type="text" placeholder="Role (eg. Developer, UX, etc)">
+                </div>
+                <div class="form-row">
+                    <label class="label">Bio</label>
+                    <textarea id:"bio" name="bio" rows="6" placeholder="Tell us about yourself"></textarea>
+                
+                </div>
+                <div class="form-row">
+                    <div class="form-actions" style="margin-top: 16px;">
+                    <a href="preferences.html" class="btn-primary" type="button">Continue</a>
+                </div>
+            </section>
+        </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2025 ConnectToCode</div>
+      <div class="attribution"></div>
+    </div>
+  </footer>
+</body>
+</html>
