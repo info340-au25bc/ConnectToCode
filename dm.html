@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="authors" content="Helen Nguyen, Kenzie Atallah, Kassidy Liao, Alexis Lucatero">
+  <meta name="description" content="Direct messaging page for ConnectToCode">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/ConnectToCode.css">
+  <link rel="stylesheet" href="css/messages.css">
+  <title>ConnectToCode — Messages</title>
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo">CtC</div>
+        <span class="brand-title">ConnectToCode</span>
+      </a>
+      <nav class="main-nav" role="navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="project.html">Projects</a>
+        <a class="nav-link" href="profile.html">Profile</a>
+        <a class="nav-link" href="dm.html" aria-current="page">Messages</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap dm-layout">
+    <aside class="dm-sidebar">
+      <h2>Direct Messages</h2>
+      <ul class="dm-list">
+        <li class="active">
+          <div class="avatar-circle" style="background:#71a8e0;">H</div>
+          <span>Helen Nguyen</span>
+        </li>
+        <li>
+          <div class="avatar-circle" style="background:#88d4b9;">K</div>
+          <span>Kenzie Atallah</span>
+        </li>
+        <li>
+          <div class="avatar-circle" style="background:#f3a683;">K</div>
+          <span>Kassidy Liao</span>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="dm-chat">
+      <header class="chat-header">
+        <h3>Helen Nguyen <span class="role">Frontend Developer</span></h3>
+      </header>
+
+      <div class="chat-box">
+        <div class="msg">
+          <strong>Helen:</strong> Hey Alexis! Are you ready for the next sprint demo?
+        </div>
+        <div class="msg self">
+          <strong>You:</strong> Almost! Just wrapping up the last UI adjustments for the profile section.
+        </div>
+        <div class="msg">
+          <strong>Helen:</strong> Nice! The new hero layout looked amazing btw 😄
+        </div>
+      </div>
+
+      <form class="chat-input" action="#" method="post">
+        <input type="text" placeholder="Type a message..." required>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>2025 ConnectToCode</div>
+    </div>
+  </footer>
+</body>
+</html>
