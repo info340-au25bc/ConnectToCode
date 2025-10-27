@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/preference-quiz.css">
+  <title>ConnectToCode — Preference Quiz</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><div class="logo">CtC</div><span class="brand-title">ConnectToCode</span></a>
+      <nav class="main-nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="project.html">Projects</a>
+        <a class="nav-link" href="profile.html">Profile</a>
+        <a class="nav-link" href="preference-quiz.html" aria-current="page">Preferences</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="quiz-container">
+      <div class="quiz-header">
+        <h1>Project Preference Quiz</h1>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+      
+      <form class="quiz-form" id="preference-quiz">
+        <div class="quiz-step active" id="step-1">
+          <h2>Experience Level</h2>
+          <div class="option-group">
+            <input type="radio" id="beginner" name="experience" value="beginner">
+            <label for="beginner" class="option-card">
+              <h3>Beginner</h3>
+            </label>
+            
+            <input type="radio" id="intermediate" name="experience" value="intermediate">
+            <label for="intermediate" class="option-card">
+              <h3>Intermediate</h3>
+            </label>
+            
+            <input type="radio" id="advanced" name="experience" value="advanced">
+            <label for="advanced" class="option-card">
+              <h3>Advanced</h3>
+            </label>
+          </div>
+          
+          <div class="quiz-navigation">
+            <button type="button" class="btn-primary next-btn">Next</button>
+          </div>
+        </div>
+        
+        <div class="quiz-step" id="step-2">
+          <h2>Technical Interests</h2>
+          <div class="checkbox-options">
+            <div class="checkbox-group">
+              <input type="checkbox" id="frontend" name="interests" value="frontend">
+              <label for="frontend">Frontend</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="backend" name="interests" value="backend">
+              <label for="backend">Backend</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="data" name="interests" value="data">
+              <label for="data">Data</label>
+            </div>
+          </div>
+          
+          <div class="quiz-navigation">
+            <button type="button" class="btn-ghost prev-btn">Previous</button>
+            <button type="button" class="btn-primary next-btn">Next</button>
+          </div>
+        </div>
+        
+        <div class="quiz-step" id="step-3">
+          <h2>Project Type</h2>
+          <div class="option-group">
+            <input type="radio" id="short-term" name="project-type" value="short-term">
+            <label for="short-term" class="option-card">
+              <h3>Short-term</h3>
+            </label>
+            
+            <input type="radio" id="long-term" name="project-type" value="long-term">
+            <label for="long-term" class="option-card">
+              <h3>Long-term</h3>
+            </label>
+          </div>
+          
+          <div class="quiz-navigation">
+            <button type="button" class="btn-ghost prev-btn">Previous</button>
+            <button type="submit" class="btn-primary">Complete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>2025 ConnectToCode</div>
+      <a href="terms.html">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>
