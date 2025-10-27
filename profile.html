@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="authors" content="Helen Nguyen, Kenzie Atallah, Kassidy Liao, Alexis Lucatero">
-    <meta name="description" content="profile page for ConnectToCode">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/ConnectToCode.css">
-    <title>ConnectToCode</title>
+  <meta charset="utf-8">
+  <meta name="authors" content="Helen Nguyen, Kenzie Atallah, Kassidy Liao, Alexis Lucatero">
+  <meta name="description" content="Profile page for ConnectToCode">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/ConnectToCode.css">
+  <title>ConnectToCode — Profile</title>
 </head>
+
 <body>
-    <header>
-        <h1>ConnectToCode</h1>
-        <nav>
-            <a href="Home">Home</a>
-            <a href="Profile">Profile</a>
-            <a href="Messages">Messages</a>
-        </nav>
-    </header>
-    <main>
-        <section>
-            
-        </section>
-    </main>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><div class="logo">CtC</div><span class="brand-title">ConnectToCode</span></a>
+      <nav class="main-nav" role="navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="project.html">Projects</a>
+        <a class="nav-link" href="profile.html" aria-current="page">Profile</a>
+        <a class="nav-link" href="dm.html">Messages</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Alexis Lucatero</h1>
+        <p class="lead">Frontend Developer · UX Enthusiast · Data & Design</p>
+        <div class="hero-actions">
+          <a href="edit-profile.html" class="btn-ghost">Edit Profile</a>
+          <a href="dm.html" class="btn-primary">Message</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="img/profilepic.jpg" alt="Photo of Alexis Lucatero">
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <img src="img/groupworking.jpg" alt="Web project mockup">
+        <div class="card-body">
+          <h3>Frontend Collaboration Portal</h3>
+          <p class="muted">React · Node.js · UX Design</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/databoard.jpg" alt="Analytics dashboard">
+        <div class="card-body">
+          <h3>Data Dashboard Prototype</h3>
+          <p class="muted">Python · Flask · Figma</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>2025 ConnectToCode</div>
+    </div>
+  </footer>
 </body>
 </html>
