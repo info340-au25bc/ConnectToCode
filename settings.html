@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <title>ConnectToCode — Settings</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><div class="logo">CtC</div><span class="brand-title">ConnectToCode</span></a>
+      <nav class="main-nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="project.html">Projects</a>
+        <a class="nav-link" href="profile.html">Profile</a>
+        <a class="nav-link" href="settings.html" aria-current="page">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="settings-container">
+      <h1>Account Settings</h1>
+      
+      <div class="settings-grid">
+        <section class="settings-section">
+          <h2>Profile Settings</h2>
+          <form class="settings-form">
+            <div class="form-group">
+              <label for="display-name">Display Name</label>
+              <input type="text" id="display-name" name="display-name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="bio">Bio</label>
+              <textarea id="bio" name="bio" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Update Profile</button>
+          </form>
+        </section>
+        
+        <section class="settings-section">
+          <h2>Privacy Settings</h2>
+          <form class="settings-form">
+            <div class="checkbox-group">
+              <input type="checkbox" id="profile-public" name="profile-public" checked>
+              <label for="profile-public">Make profile public</label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="email-public" name="email-public">
+              <label for="email-public">Show email</label>
+            </div>
+            <button type="submit" class="btn-primary">Save Settings</button>
+          </form>
+        </section>
+        
+        <section class="settings-section">
+          <h2>Account</h2>
+          <div class="account-actions">
+            <a href="preference-quiz.html" class="btn-primary">Update Preferences</a>
+            <button class="btn-ghost">Change Password</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>2025 ConnectToCode</div>
+      <a href="terms.html">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>
