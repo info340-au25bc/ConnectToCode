@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="authors" content="Helen Nguyen, Kenzie Atallah, Kassidy Liao, Alexis Lucatero">
+    <meta name="description" content="homepage for ConnectToCode">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ConnectToCode.css">
+     <link rel="stylesheet" href="css/shared.css">
+    <title>ConnectToCode</title>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href=" " aria-label="ConnectToCode home">
+        <div class="logo">CtC</div>
+        <span class="brand-title">ConnectToCode</span>
+      </a >
+
+      <form class="header-search" action="#" method="get" role="search" aria-label="Site search">
+        <label for="q" class="sr-only">Search projects</label>
+        <input id="q" name="q" type="search" placeholder="Search projects, skills..." required>
+        <label for="cat" class="sr-only">Category</label>
+        <select id="cat" name="category" aria-label="Category filter">
+          <option value="">All categories</option>
+          <option>Frontend</option>
+          <option>Backend</option>
+          <option>Data</option>
+          <option>Design</option>
+        </select>
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="index.html" aria-current="page">Home</a >
+        <a class="nav-link" href="project.html">Projects</a >
+        <a class="nav-link" href="profile.html">Profile</a >
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap" id="home-main">
+    <!-- Intro / hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Discover real projects. Join real teams.</h1>
+        <p class="lead">Browse ongoing developer projects, request to join teams, showcase your experience, and get matched to opportunities.</p >
+        <div class="hero-actions">
+          <a href="project.html" class="btn-ghost">Browse Projects</a >
+          <a href="profile.html" class="btn-primary">Your Profile</a >
+        </div>
+      </div>
+      <div class="hero-media">
+        < img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=60" alt="Developers collaborating" />
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        < img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=60" alt="Code on screen">
+        <div class="card-body">
+          <h3><a href="project.html">ConnectToCode (demo project)</a ></h3>
+          <p class="muted">Category: Collaboration · Tech: HTML, CSS, JS · Roles open: 2</p >
+        </div>
+      </article>
+
+      <article class="card">
+        < img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?w=600&q=60" alt="Design mockups">
+        <div class="card-body">
+          <h3><a href="profile.html">UX Showcase</a ></h3>
+          <p class="muted">Category: Design · Tech: Figma, CSS · Roles open: 1</p >
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div>© 2025 ConnectToCode</div>
+      <div class="attribution">Images from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a ></div>
+    </div>
+  </footer>
+</body>
+</html>
