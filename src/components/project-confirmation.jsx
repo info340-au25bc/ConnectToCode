@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/project.css';
-import '../css/ConnectToCode';
+import '../css/ConnectToCode.css';
 
 export default function ProjectConfirmation() {
     return(
