@@ -6,7 +6,8 @@ import Projects from './components/Projects';
 import Profile from './components/Profile';
 import Onboarding from './components/Onboarding';
 import Proposal from './components/Proposal';
-
+import ProjectUpload from './components/ProjectUpload';
+import ProjectConfirmation from './components/ProjectConfirmation';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="projects" element={<Projects />} />
         <Route path="profile" element={<Profile />} />
         <Route path="onboarding" element={<Onboarding />} />
+        <Route path="project-upload" element={<ProjectUpload />} />
+        <Route path="project-confirmation" element={<ProjectConfirmation />} />
       </Route>
       <Route path="/proposal" element={<Proposal />} />
     </Routes>

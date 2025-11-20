@@ -1,17 +1,17 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../css/project.css';
-import '../css/ConnectToCode.css';
 
 export default function ProjectConfirmation() {
     return(
         <div>
-            <main class="page-wrap">
-                <div class="confirmation">
+            <main className="page-wrap">
+                <div className="confirmation">
                     <h2>Project Submitted Successfully!</h2>
                     <p>Your project post has been uploaded and added to the ConnectToCode platform.</p>
                     <div>
-                    <a href="project.html" class="btn-primary">View Other Projects</a>
-                    <a href="project-upload.html" class="btn-primary">Add Another Project</a>
+                    <Link to="project" className="btn-primary">View Other Projects</Link>
+                    <Link to="project-upload" className="btn-primary">Add Another Project</Link>
                 </div>
                 </div>
             </main>

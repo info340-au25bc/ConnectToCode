@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../css/project.css';
-import '../css/ConnectToCode.css';
 
 export default function ProjectUpload() {
 return(
@@ -38,24 +38,24 @@ return(
                     </div>
                 </section>
 
-                <section class="col-right upload">
+                <section className="col-right upload">
                     <h2>Create a New Project Post</h2>
-                    <div class="form-row">
-                        <label class="label" for="title">Project Title</label>
+                    <div className="form-row">
+                        <label className="label" for="title">Project Title</label>
                         <input id="title" name="title" type="text" placeholder="Enter your project title" required/>
                     </div>
-                    <div class="form-row">
-                        <label class="label" for="proposal">Project Proposal</label>
+                    <div className="form-row">
+                        <label className="label" for="proposal">Project Proposal</label>
                         <textarea id="proposal" name="description" rows="6" placeholder="Describe your project" required></textarea>
                     </div>
 
-                    <div class="form-row">
-                        <label class="label" for="work">Work</label>
+                    <div className="form-row">
+                        <label className="label" for="work">Work</label>
                         <input id="work" name="work" type="text" placeholder="e.g., AI, Web Development, UX"/>
                     </div>
 
-                    <div class="form-row">
-                        <label class="label" for="level">Skill Level</label>
+                    <div className="form-row">
+                        <label className="label" for="level">Skill Level</label>
                             <select id="level" name="level">
                                 <option value="">Select level</option>
                                 <option>Beginner</option>
@@ -64,13 +64,13 @@ return(
                             </select>
                     </div>
 
-                    <div class="form-row">
-                        <label class="label" for="link">Repository Link</label>
+                    <div className="form-row">
+                        <label className="label" for="link">Repository Link</label>
                         <input id="link" name="link" type="url" placeholder="https://github.com/yourproject"/>
                     </div>
-                        <div class="form-actions">
-                        <a href="project-confirmation.html" class="btn-primary" type="submit">Submit Project</a>
-                        <a class="btn-ghost" type="reset">Clear Form</a>
+                        <div className="form-actions">
+                        <Link to="/project-confirmation" className="btn-primary" type="submit">Submit Project</Link>
+                        <button className="btn-ghost" type="reset">Clear Form</button>
                     </div>
                 </section>
             </form>
