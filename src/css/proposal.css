@@ -1,0 +1,36 @@
+.proposal-page {
+  font-family: "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  padding: 30px; 
+  line-height: 1.5;
+}
+
+
+.proposal-page header {
+  background-color: #1e3a6f;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px; 
+  margin-bottom: 20px;
+}
+
+.proposal-page h2 {
+  color: #1e3a5f;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.proposal-page a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.proposal-page a:hover {
+  text-decoration: underline;
+}
+
+.proposal-page ul {
+  padding-left: 20px;
+}
