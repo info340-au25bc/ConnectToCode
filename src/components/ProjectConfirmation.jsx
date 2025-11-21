@@ -10,7 +10,7 @@ export default function ProjectConfirmation() {
                     <h2>Project Submitted Successfully!</h2>
                     <p>Your project post has been uploaded and added to the ConnectToCode platform.</p>
                     <div>
-                    <Link to="/project" className="btn-primary">View Other Projects</Link>
+                    <Link to="/projects" className="btn-primary">View Other Projects</Link>
                     <Link to="/project-upload" className="btn-primary">Add Another Project</Link>
                 </div>
                 </div>
