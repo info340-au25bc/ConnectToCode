@@ -1,41 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../css/project.css';
 
+/* to store member info */
+function MemberInfo ({ index, member, onChange }) {
+    return (
+        <div className="form-row">
+            <label className="label">Member {index + 1} </label>
+            <input type="text" placeholder="Full Name" name="name" value={member.name} onChange={(e) => onChange(index, "name", e.target.value)} style={{marginBottom: '8px'}}/>
+            <input type="text" placeholder="Role (e.g. Frontend)" name="role" value={member.role} onChange={(e) => onChange(index, "role", e.target.value)}/>
+        </div>
+    );
+}
+
+/*primary*/
 export default function ProjectUpload() {
+    const [members, setMembers] = useState([{name: "", role: ""}]);
+    const handleMemberChange = (index, field, value) => {
+        const updated = [...members];
+        updated[index][field] = value;
+        setMembers(updated);
+    };
+    const addMember = () => {
+        setMembers([...members, { name:"", role: "" }]);
+    };
+    const resetForm = () => {
+        setMembers([{ name: "", role: "" }]);
+    };
+
+
 return(
     <div className="page-wrap">
         <div className="layout-card">
-
             <form action="#" method="post" className="top-area upload">
                 <section className="col-left">
                     <h2>Add Project Members</h2>
                     <p>Enter the names and roles of your team members.</p>
-
-                    <div className="form-row">
-                        <label className="label">Member 1</label>
-                        <input name="member1_name" type="text" placeholder="Full name" style="margin-bottom: 8px;"/>
-                        <input name="member1_role" type="text" placeholder="Role (e.g., Frontend)"/>
-                    </div>
-
-                    <div className="form-row">
-                        <label className="label">Member 2</label>
-                        <input name="member2_name" type="text" placeholder="Full name" style="margin-bottom: 8px;"/>
-                        <input name="member2_role" type="text" placeholder="Role (e.g., Backend)"/>
-                    </div>
-
-
-                    <div className="form-row">
-                        <label className="label">Member 3</label>
-                        <input name="member3_name" type="text" placeholder="Full name" style="margin-bottom: 8px;"/>
-                        <input name="member3_role" type="text" placeholder="Role (e.g., UI/UX)"/>
-                    </div>
-
-                    <div className="form-row">
-                        <label class="label">Member 4</label>
-                        <input name="member4_name" type="text" placeholder="Full name" style="margin-bottom: 8px;"/>
-                        <input name="member4_role" type="text" placeholder="Role (e.g., Data)"/>
-                    </div>
+                    {members.map((member, i) => (
+                    <MemberInfo key={i} index={i} member={member} onChange={handleMemberChange}/>
+                    ))}
+                    <button type="button" onClick={addMember} className="btn-ghost" style={{ marginTop: "10px" }}>
+                        + Add Member </button>
                 </section>
 
                 <section className="col-right upload">
@@ -69,8 +74,8 @@ return(
                         <input id="link" name="link" type="url" placeholder="https://github.com/yourproject"/>
                     </div>
                         <div className="form-actions">
-                        <Link to="/project-confirmation" className="btn-primary" type="submit">Submit Project</Link>
-                        <button className="btn-ghost" type="reset">Clear Form</button>
+                        <Link to="/project-confirmation" className="btn-primary">Submit Project</Link>
+                        <button  type="reset" className="btn-ghost">Clear Form</button>
                     </div>
                 </section>
             </form>
