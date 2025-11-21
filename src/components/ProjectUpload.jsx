@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../css/project.css';
 
-/* to store member info */
+/* to help render */
 function MemberInfo ({ index, member, onChange }) {
     return (
         <div className="form-row">
@@ -31,7 +31,7 @@ export default function ProjectUpload() {
 
 return(
     <div className="page-wrap">
-        <div className="layout-card">
+        <div className="layout-card"  style={{display: 'flex', justifyContent: 'center'}}>
             <form action="#" method="post" className="top-area upload">
                 <section className="col-left">
                     <h2>Add Project Members</h2>
