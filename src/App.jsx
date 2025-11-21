@@ -8,6 +8,9 @@ import Onboarding from './components/Onboarding';
 import Proposal from './components/Proposal';
 import ProjectUpload from './components/ProjectUpload';
 import ProjectConfirmation from './components/ProjectConfirmation';
+import Preferences from './components/Preferences';
+import Settings from './components/Settings';
+import Terms from './components/Terms';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
         <Route path="onboarding" element={<Onboarding />} />
         <Route path="project-upload" element={<ProjectUpload />} />
         <Route path="project-confirmation" element={<ProjectConfirmation />} />
+        <Route path="preferences" element={<Preferences />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="terms" element={<Terms />} />
       </Route>
       <Route path="/proposal" element={<Proposal />} />
     </Routes>
