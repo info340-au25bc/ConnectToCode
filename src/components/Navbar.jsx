@@ -29,6 +29,7 @@ export default function Navbar() {
           <Link className="nav-link" to="/projects">Projects</Link>
           <Link className="nav-link" to="/profile">Profile</Link>
           <Link className="nav-link" to="/project-upload">Upload</Link>
+          <Link className="nav-link" to="/settings">Settings</Link>
         </nav>
       </div>
     </header>
