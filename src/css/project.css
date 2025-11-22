@@ -93,3 +93,16 @@
   .col-left { padding: 22px; }
   .top-area { padding: 22px; }
 }
+
+.project-filter h4 {
+  color: rgba(2,6,23,0.7);
+}
+
+@media (max-width: 600px) {
+  .project-filter form > div {
+    flex-direction: column;
+  }
+  .project-filter form .form-row {
+    width: 100% !important;
+  }
+}
