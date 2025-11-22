@@ -8,9 +8,9 @@ import Onboarding from './components/Onboarding';
 import Proposal from './components/Proposal';
 import ProjectUpload from './components/ProjectUpload';
 import ProjectConfirmation from './components/ProjectConfirmation';
-import Preferences from './components/Preferences';
-import Settings from './components/Settings';
-import Terms from './components/Terms';
+import Preferences from './components/preferences';
+import Settings from './components/settings';
+import Terms from './components/terms';
 
 function App() {
   return (
