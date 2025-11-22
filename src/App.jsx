@@ -11,6 +11,7 @@ import ProjectConfirmation from './components/ProjectConfirmation';
 import Preferences from './components/preferences';
 import Settings from './components/settings';
 import Terms from './components/terms';
+import DM from './components/dm';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="preferences" element={<Preferences />} />
         <Route path="settings" element={<Settings />} />
         <Route path="terms" element={<Terms />} />
+        <Route path="dm" element={<DM />} />
       </Route>
       <Route path="/proposal" element={<Proposal />} />
     </Routes>
