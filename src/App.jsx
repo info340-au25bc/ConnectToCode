@@ -11,7 +11,7 @@ import ProjectConfirmation from './components/ProjectConfirmation';
 import Preferences from './components/preferences';
 import Settings from './components/settings';
 import Terms from './components/terms';
-import DM from './components/dm';
+import DM from './components/DM';
 
 function App() {
   return (
