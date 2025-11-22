@@ -190,3 +190,126 @@ select:focus {
     text-align: left;
   }
 }
+
+.profile-page .hero-media img {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-page .project-image img {
+  width: 100% !important;
+  height: 160px !important;
+  object-fit: cover !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.profile-page .card img {
+  width: 120px !important;
+  height: 84px !important;
+  border-radius: 8px !important;
+  object-fit: cover !important;
+}
+
+.profile-page .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.profile-page .profile-hero-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-page .profile-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+}
+
+.profile-page .profile-text-content h1,
+.profile-page .profile-text-content .lead,
+.profile-page .profile-text-content .bio-text {
+  text-align: center;
+}
+
+.profile-page .profile-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-page .hero-media {
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+
+@media (min-width: 900px) {
+  .profile-page .hero-media {
+    flex: 0 0 150px !important;
+  }
+  
+  .profile-page .hero-media img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .profile-page .project-image img {
+    height: 160px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .profile-page .hero-media img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  .profile-page .card img {
+    width: 100px !important;
+    height: 70px !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .profile-page .hero {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+  
+  .profile-page .profile-hero-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-page .profile-text-content {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-page .profile-text-content h1,
+  .profile-page .profile-text-content .lead,
+  .profile-page .profile-text-content .bio-text {
+    text-align: center;
+  }
+  
+  .profile-page .profile-meta {
+    align-items: center;
+  }
+  
+  .profile-page .hero-actions {
+    justify-content: center;
+  }
+}
