@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
     <footer className="site-footer" role="contentinfo">
       <div className="footer-inner">
         <div>© 2025 ConnectToCode</div>
+        <Link to="/terms">Terms of Use</Link>
         <div className="attribution">
           Images from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
         </div>
