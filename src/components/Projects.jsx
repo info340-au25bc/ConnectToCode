@@ -1,116 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/project.css';
-
-const INITIAL_DATA = [
-  {
-    id: 1,
-    title: "Proposed Application: DevConnect",
-    category: "Social / Platform",
-    description: "Our target audience for this platform includes developers and other creatives who struggle to showcase their hands-on experience. Through this platform, users can browse ongoing projects and request to join development teams.",
-    features: [
-      "Collaboration hub allows users to browse projects.",
-      "Group matching process based on interests.",
-      "Profile showcase presenting various work experiences."
-    ],
-    links: ["Repository (git)", "Design Doc", "Onboarding"],
-    events: [
-      { date: "2025-11-05", name: "Sprint planning" },
-      { date: "2025-11-12", name: "Demo day" }
-    ],
-    members: [
-      { name: "Alice Chen", role: "Frontend" },
-      { name: "Bob Li", role: "Backend" },
-      { name: "Carol Wang", role: "Data" },
-      { name: "David Zhang", role: "DevOps" }
-    ]
-  },
-  {
-    id: 2,
-    title: "AI Chatbot Assistant",
-    category: "Artificial Intelligence",
-    description: "A customized LLM wrapper that helps junior developers debug code in real-time. It integrates with VS Code and provides context-aware suggestions based on the project structure.",
-    features: [
-      "Real-time syntax analysis.",
-      "Context-aware debugging suggestions.",
-      "Integration with popular IDEs."
-    ],
-    links: ["Model Weights", "API Docs", "Testing Suite"],
-    events: [
-      { date: "2025-12-01", name: "Model Training" },
-      { date: "2025-12-10", name: "Beta Launch" }
-    ],
-    members: [
-      { name: "Sarah Smith", role: "ML Engineer" },
-      { name: "Mike Johnson", role: "Backend" }
-    ]
-  },
-  {
-    id: 3,
-    title: "Eco-Tracker App",
-    category: "Mobile / IoT",
-    description: "An IoT-based mobile application that tracks household energy consumption. It connects to smart meters and visualizes data to help users save on electricity bills.",
-    features: [
-      "Bluetooth connection to smart meters.",
-      "Data visualization charts.",
-      "Monthly savings report generation."
-    ],
-    links: ["Figma Designs", "Mobile Repo", "Hardware Spec"],
-    events: [
-      { date: "2025-11-20", name: "Hardware Testing" },
-      { date: "2025-11-25", name: "UI Polish" }
-    ],
-    members: [
-      { name: "Emily Davis", role: "Mobile Dev" },
-      { name: "Tom Wilson", role: "Product Manager" },
-      { name: "Jenny Lee", role: "UI Designer" }
-    ]
-  }
-];
+import { db } from '../services/firebase';
+import { collection, onSnapshot } from 'firebase/firestore';
+import MemberList from './MemberList';
 
 export default function Projects() {
-  const [projects, setProjects] = useState(INITIAL_DATA);
+  const [projects, setProjects] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  
   const [newMemberName, setNewMemberName] = useState('');
-  const [newMemberRole, setNewMemberRole] = useState('Frontend'); // 默认值
+  const [newMemberRole, setNewMemberRole] = useState('Frontend');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const currentProject = projects[activeIndex];
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    const colRef = collection(db, 'projects');
 
-  const handleJoinSubmit = (e) => {
-    e.preventDefault();
-    if (!newMemberName.trim()) return;
+    // subscribe to realtime updates
+    const unsub = onSnapshot(colRef, (snapshot) => {
+      try {
+        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        console.log('Projects onSnapshot — got docs:', list.length);
+        setProjects(list);
 
-    const newMember = { name: newMemberName, role: newMemberRole };
+        // keep activeIndex in bounds
+        setActiveIndex(prev => {
+          if (list.length === 0) return 0;
+          return Math.min(prev, list.length - 1);
+        });
 
-    const updatedProjects = [...projects];
-    updatedProjects[activeIndex].members.push(newMember);
+        setLoading(false);
+      } catch (e) {
+        console.error('onSnapshot processing error:', e);
+        setError('Failed to process project data.');
+        setLoading(false);
+      }
+    }, (err) => {
+      console.error('onSnapshot error:', err);
+      setError('Failed to load projects: ' + (err.message || err));
+      setLoading(false);
+    });
 
-    setProjects(updatedProjects);
-    setNewMemberName(''); 
-    alert(`Welcome aboard! ${newMember.name} has joined the ${currentProject.category} team.`);
+    return () => unsub();
+  }, []);
+
+  // helper to find current project safely
+  const currentProject = projects[activeIndex] || {
+    id: null,
+    title: 'No project selected',
+    category: '',
+    description: '',
+    features: [],
+    links: [],
+    events: [],
+    members: []
   };
+
+  if (loading) return <div className="page-wrap">Loading projects...</div>;
 
   return (
     <div className="page-wrap" id="project-main">
       <div className="layout-card">
-        
         <aside className="col-left" aria-labelledby="members-title">
           <h2 id="members-title">Member List</h2>
           <p style={{ fontSize: '13px', opacity: 0.8, marginBottom: '10px' }}>
-            Team for: {currentProject.category}
+            Team for: {currentProject.category || '(none)'}
           </p >
-          
-          <ul className="member-list">
-            {currentProject.members.map((member, index) => (
-              <li key={index}>
-                <span className="member-name">{member.name}</span>
-                <span className="member-role">{member.role}</span>
-              </li>
-            ))}
-          </ul>
+
+          {error ? (
+            <div style={{ color: 'red', padding: 8 }}>{error}</div>
+          ) : (
+            <MemberList members={currentProject.members || []} />
+          )}
 
           <div className="member-stats">
-            <div><strong>Total Members:</strong> {currentProject.members.length}</div>
+            <div><strong>Total Members:</strong> {(currentProject.members || []).length}</div>
             <div><strong>Status:</strong> Active</div>
           </div>
         </aside>
@@ -118,41 +83,42 @@ export default function Projects() {
         <section className="col-right" aria-labelledby="proposal-title">
           <div className="top-area">
             <div className="top-inner">
-              
-              <div className="project-filter" style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
-                
+              <div
+                className="project-filter"
+                style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid rgba(0,0,0,0.1)' }}
+              >
                 <div className="form-row">
                   <label htmlFor="project-select" className="label">Select Project to View</label>
-                  <select 
-                    id="project-select" 
-                    value={activeIndex} 
+                  <select
+                    id="project-select"
+                    value={activeIndex}
                     onChange={(e) => setActiveIndex(Number(e.target.value))}
                   >
-                    {projects.map((p, idx) => (
-                      <option key={p.id} value={idx}>
-                        {p.title} ({p.category})
-                      </option>
-                    ))}
+                    {projects.length === 0 ? (
+                      <option value={0}>(no projects)</option>
+                    ) : (
+                      projects.map((p, idx) => (
+                        <option key={p.id || idx} value={idx}>
+                          {p.title} {p.category ? `(${p.category})` : ''}
+                        </option>
+                      ))
+                    )}
                   </select>
                 </div>
 
-                <form onSubmit={handleJoinSubmit} style={{ marginTop: '12px' }}>
-                  <h4 style={{ fontSize: '14px', fontWeight: '800', marginBottom: '8px' }}>Join this Team</h4>
+                <form onSubmit={(e) => { e.preventDefault(); /* join handled below in a separate UI if needed */ }} style={{ marginTop: '12px' }}>
+                  <h4 style={{ fontSize: '14px', fontWeight: '800', marginBottom: '8px' }}>Join this Team (use right column)</h4>
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     <div className="form-row" style={{ flex: 1 }}>
-                      <input 
-                        type="text" 
-                        placeholder="Your Name" 
+                      <input
+                        type="text"
+                        placeholder="Your Name"
                         value={newMemberName}
                         onChange={(e) => setNewMemberName(e.target.value)}
-                        required
                       />
                     </div>
                     <div className="form-row" style={{ width: '140px' }}>
-                      <select 
-                        value={newMemberRole} 
-                        onChange={(e) => setNewMemberRole(e.target.value)}
-                      >
+                      <select value={newMemberRole} onChange={(e) => setNewMemberRole(e.target.value)}>
                         <option>Frontend</option>
                         <option>Backend</option>
                         <option>Designer</option>
@@ -160,7 +126,37 @@ export default function Projects() {
                         <option>Product</option>
                       </select>
                     </div>
-                    <button className="btn-primary" type="submit">Join</button>
+                    <button
+                      type="button"
+                      className="btn-primary"
+                      onClick={async () => {
+                        // run join here so it's clearer for debugging
+                        if (!newMemberName.trim()) { alert('Please enter your name'); return; }
+                        const newMember = { name: newMemberName.trim(), role: newMemberRole };
+                        // local optimistic update:
+                        setProjects(prev => prev.map((p, idx) => idx === activeIndex ? { ...p, members: [...(p.members || []), newMember] } : p));
+                        setNewMemberName('');
+                        // persist to Firestore if doc id exists
+                        try {
+                          if (currentProject && currentProject.id) {
+                            // import updateDoc & arrayUnion on top if not present
+                            const { doc, updateDoc, arrayUnion } = await import('firebase/firestore');
+                            const projectDoc = doc(db, 'projects', currentProject.id);
+                            await updateDoc(projectDoc, { members: arrayUnion(newMember) });
+                            console.log('member persisted to Firestore:', newMember);
+                            alert('Joined and saved to Firestore');
+                          } else {
+                            console.warn('currentProject has no Firestore id; not persisted.');
+                            alert('Joined locally (not saved to Firestore).');
+                          }
+                        } catch (err) {
+                          console.error('Failed to persist member:', err);
+                          alert('Joined locally but failed to save to Firestore (' + (err.message || err) + ')');
+                        }
+                      }}
+                    >
+                      Join
+                    </button>
                   </div>
                 </form>
               </div>
@@ -172,7 +168,7 @@ export default function Projects() {
                 <section id="features">
                   <h3>Key Features</h3>
                   <ul>
-                    {currentProject.features.map((feature, i) => (
+                    {(currentProject.features || []).map((feature, i) => (
                       <li key={i}>{feature}</li>
                     ))}
                   </ul>
@@ -185,7 +181,7 @@ export default function Projects() {
             <div className="box links-box">
               <h4>Links & Resources</h4>
               <ul>
-                {currentProject.links.map((link, i) => (
+                {(currentProject.links || []).map((link, i) => (
                   <li key={i}><a href=" ">{link}</a ></li>
                 ))}
               </ul>
@@ -194,14 +190,12 @@ export default function Projects() {
             <div className="box events-box">
               <h4>Upcoming events</h4>
               <ul>
-                {currentProject.events.map((evt, i) => (
+                {(currentProject.events || []).map((evt, i) => (
                   <li key={i}>{evt.date} — {evt.name}</li>
                 ))}
               </ul>
               <div className="cta">
-                <button className="btn-primary" onClick={() => alert("Check calendar for details!")}>
-                  Sync Calendar
-                </button>
+                <button className="btn-primary" onClick={() => alert('Check calendar for details!')}>Sync Calendar</button>
               </div>
             </div>
           </div>
