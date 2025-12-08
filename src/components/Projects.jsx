@@ -3,7 +3,7 @@ import '../css/project.css';
 import { db } from '../services/firebase';
 import { collection, onSnapshot } from 'firebase/firestore';
 import MemberList from './MemberList';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
