@@ -3,6 +3,7 @@ import '../css/project.css';
 import { db } from '../services/firebase';
 import { collection, onSnapshot } from 'firebase/firestore';
 import MemberList from './MemberList';
+import { useNavigate } from 'react-router';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -11,6 +12,7 @@ export default function Projects() {
   const [newMemberRole, setNewMemberRole] = useState('Frontend');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate= useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -83,6 +85,12 @@ export default function Projects() {
         <section className="col-right" aria-labelledby="proposal-title">
           <div className="top-area">
             <div className="top-inner">
+              <button
+                className="btn-primary"
+                style={{marginBottom: '10px'}}
+                onClick={() => navigate("/project-upload")}>
+                Uploade New Project
+              </button>
               <div
                 className="project-filter"
                 style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid rgba(0,0,0,0.1)' }}
@@ -105,6 +113,7 @@ export default function Projects() {
                     )}
                   </select>
                 </div>
+
 
                 <form onSubmit={(e) => { e.preventDefault(); /* join handled below in a separate UI if needed */ }} style={{ marginTop: '12px' }}>
                   <h4 style={{ fontSize: '14px', fontWeight: '800', marginBottom: '8px' }}>Join this Team (use right column)</h4>
@@ -176,6 +185,7 @@ export default function Projects() {
               </article>
             </div>
           </div>
+
 
           <div className="bottom-row">
             <div className="box links-box">
