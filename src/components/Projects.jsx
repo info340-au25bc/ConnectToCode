@@ -89,7 +89,7 @@ export default function Projects() {
                 className="btn-primary"
                 style={{marginBottom: '10px'}}
                 onClick={() => navigate("/project-upload")}>
-                Uploade New Project
+                Upload New Project
               </button>
               <div
                 className="project-filter"
