@@ -12,6 +12,7 @@ import Preferences from './components/preferences';
 import Settings from './components/settings';
 import Terms from './components/terms';
 import DM from './components/DM';
+import ProjectDetail from './components/ProjectDetail'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="projects" element={<Projects />} />
+        <Route path="projects/:projectId" element={<ProjectDetail />} />
         <Route path="profile" element={<Profile />} />
         <Route path="onboarding" element={<Onboarding />} />
         <Route path="project-upload" element={<ProjectUpload />} />

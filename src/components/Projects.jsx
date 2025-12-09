@@ -172,8 +172,22 @@ export default function Projects() {
 
               <article className="proposal-content" id="proposal-title">
                 <h2>{currentProject.title}</h2>
+                {/* insert change */}
+                <button
+                  className="btn-primary"
+                  style={{ marginBottom: "16px" }}
+                  onClick={() => {
+                    if (currentProject.id) {
+                      navigate(`/projects/${currentProject.id}`);
+                    } else {
+                      alert("No project selected");
+                    }
+                  }}
+                >
+                  View Full Project →
+                </button>
+                {/*end of route */}
                 <p>{currentProject.description}</p >
-
                 <section id="features">
                   <h3>Key Features</h3>
                   <ul>
