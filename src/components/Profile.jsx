@@ -26,7 +26,7 @@ export default function Profile() {
         title: "Frontend Collaboration Portal",
         technologies: ["React, ", "Node.js, ", "UX Design"],
         description: "A platform for developers...",
-        image: "/project-draft/img/groupworking.jpg",
+        image: "src/img/groupworking.jpg",
         status: "Active"
       }, 
       {
@@ -34,7 +34,7 @@ export default function Profile() {
         title: "Data Dashboard Prototype",
         technologies: ["Python, ", "Flask, ", "Figma"],
         description: "Interactive dashboard for data...",
-        image: "/project-draft/img/databoard.jpg",
+        image: "/src/img/databoard.jpg",
         status: "Completed"
       }
     ]
@@ -58,7 +58,7 @@ export default function Profile() {
           </div>
         </div>
         <div className="hero-media">
-          <img src="/project-draft/img/profilepic.jpg" alt={userData.personalInfo.name} />
+          <img src="src\img\profilepic.jpg" alt={userData.personalInfo.name} />
         </div>
       </section>
 
